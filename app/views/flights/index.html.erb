@@ -1,3 +1,5 @@
+<%= provide(:title, 'Flights') %>
+
 <%= form_tag '/flights', method: 'get' do %>
   <p>
     <%= select_tag :from_airport, options_for_select(@airport_options, params[:from_airport]), prompt: "From:" %>
