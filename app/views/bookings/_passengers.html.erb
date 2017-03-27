@@ -2,12 +2,14 @@
   <% i = 1 %>
   <div class="container-fluid">
     <%= b.fields_for :passengers do |p| %>
+    <%= render 'shared/error_messages', object: p.object %>
       <h3>Passenger <% i= 1 %></h3>
         <div class="field">
           <%= p.label :name %>
           <%= p.text_field :name %>
           <%= p.label :email %>
           <%= p.email_field :email %>
+          <%= p.hidden_field :flight_id, value: params[:flight_id] %>
         </div>
         <% i +=1 %>
     <% end %>
