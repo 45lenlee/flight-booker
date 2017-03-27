@@ -15,8 +15,8 @@
 <% end %>
 
 <% if @flights.present? %>
-  <% @flights.each do |f| %>
-    <%= radio_button_tag :choice, :flight %>
-    <%= label :choice, "#{f.start_time}" %>
+  <%= form_tag new_booking_path do %>
+    <%= hidden_field(:passenger, :count, value: params[:passengers]) %>
+    <p><%= collection_radio_buttons(:booking, :flight_id, @flights, :id, :flight_description) %></p>
   <% end %>
 <% end %>
